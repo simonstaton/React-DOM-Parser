@@ -1,8 +1,6 @@
 # React-DOM-Parser
 A DOM parser for the react.js library, used for instantiating react components declaratively.
 
-[view at npmjs.com](https://www.npmjs.com/package/react-dom-parser)
-
 ## Installation
 	npm install react-dom-parser --save-dev
 
