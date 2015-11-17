@@ -30,7 +30,7 @@
     "index.js",
     "parser.jsx",
     "LICENSE",
-    "README.md",
+    "README.md"
   ],
   "bugs": {
     "url": "https://github.com/simonstaton/React-DOM-Parser/issues"
