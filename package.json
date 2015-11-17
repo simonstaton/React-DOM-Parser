@@ -1,0 +1,40 @@
+{
+  "name": "React-DOM-Parser",
+  "description": "A DOM parser for the react library, used for instantiating react components declaratively",
+  "homepage": "http://www.simonstaton.co.uk/",
+  "keywords": [
+    "react",
+    "parser",
+    "dom",
+    "client",
+    "browser"
+  ],
+  "author": {
+    "name": "Simon Staton",
+    "email": "simon.staton@live.co.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/simonstaton/React-DOM-Parser.git"
+  },
+  "main": "parser.js",
+  "version": "0.0.1",
+  "devDependencies": {
+    "react-dom": "^0.14.2",
+    "react": "*"
+  },
+  "license": "MIT",
+  "files": [
+    "parser.js",
+    "parser.jsx"
+  ],
+  "bugs": {
+    "url": "https://github.com/simonstaton/React-DOM-Parser/issues"
+  },
+  "maintainers": [
+    {
+      "name": "simonstaton",
+      "email": "simon.staton@live.co.uk"
+    }
+  ]
+}
