@@ -28,7 +28,7 @@ Before instantiating a react component you must first register it in the parsers
 	parser.register('my-module', myReactComponent);
 
 	parser.register({
-		my-module: myReactComponent
+		'my-module': myReactComponent
 	});
 
 Once modules have been registered you may parse the DOM to instantiate them
