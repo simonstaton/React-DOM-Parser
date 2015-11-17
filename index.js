@@ -1,12 +1,13 @@
-'use strict';
+var React = require('react'),
+	ReactDOM = require('react-dom'),
+	parser;
 
-var ReactDOM = require('react-dom'),
-	parserJsx = require('parser.jsx');
-	
 /** @jsx React.DOM */
-module.exports = {
+module.exports = parser = {
 
 	registry: [],
+
+	modules: [],
 
 	getByNode: function(node){
 		var result;
@@ -22,31 +23,47 @@ module.exports = {
 	register: function(module, constructor){
 		if(typeof module == 'object'){
 			for(var key in module){
-				parserJsx.modules[key] = module[key];
+				parser.modules[key] = module[key];
 			}
 		} else if (typeof module == 'string') {
-			parserJsx.modules[module] = constructor;
+			parser.modules[module] = constructor;
 		}
 	},
 
-	parse: function($scope){
+	ParserConstructor: React.createClass({
+		render: function(){
+			this.props.props.children = this.props.children;
+			this.props.props.ref = "module";
+			return React.createElement(parser.modules[this.props.component], this.props.props)
+		}
+	}),
+
+	parse: function(scope){
 
 		function parseObjectFromString(stringOpts){
 			/* jshint ignore:start */
 			return new Function("return ({"+stringOpts+"})")();
 			/* jshint ignore:end */
-		};
+		}
 
-		_.each($scope.find('[data-react-component]'), _.bind(function(node){
-			var $el = $(node),
-				props = parseObjectFromString($el.data('react-props') || ''),
-				component = $el.data('react-component'),
-				Component = ReactDOM.render(<parserJsx.constructorClass component={component} props={props}><div dangerouslySetInnerHTML={{__html: node.innerHTML}} /></parserJsx.constructorClass>, node);
+		var Constructor = this.ParserConstructor,
+			Declarations = scope.querySelectorAll('[data-react-component]');
+
+		for(var i=0;i<Declarations.length;i++){
+
+			var node = Declarations[i],
+				props = parseObjectFromString(node.getAttribute('data-react-props') || ''),
+				component = node.getAttribute('data-react-component'),
+				placeholder = React.createElement(Constructor, {component: component, props: props}, React.createElement("div", {dangerouslySetInnerHTML: { __html: node.innerHTML }}));
+
+			var Component = ReactDOM.render(placeholder, node);
 			this.registry.push(Component.refs.module);
-			$el.attr('data-react-props', null);
-			$el.attr('data-react-component', null);
-		}, this));
+			
+			node.setAttribute('data-react-props', null);
+			node.setAttribute('data-react-component', null);
+
+		}
 
 	}
-}
 
+};
