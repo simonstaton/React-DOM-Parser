@@ -1,5 +1,5 @@
 {
-  "name": "React-DOM-Parser",
+  "name": "react-dom-parser",
   "description": "A DOM parser for the react library, used for instantiating react components declaratively",
   "homepage": "http://www.simonstaton.co.uk/",
   "keywords": [
@@ -9,32 +9,36 @@
     "client",
     "browser"
   ],
-  "author": {
-    "name": "Simon Staton",
-    "email": "simon.staton@live.co.uk"
-  },
+  "author": "Simon Staton <simon.staton@live.co.uk>",
   "repository": {
     "type": "git",
     "url": "git://github.com/simonstaton/React-DOM-Parser.git"
   },
-  "main": "parser.js",
-  "version": "0.0.1",
+  "main": "index.js",
+  "version": "0.1.0",
   "devDependencies": {
-    "react-dom": "^0.14.2",
-    "react": "*"
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2"
   },
-  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/simonstaton/React-DOM-Parser/blob/master/LICENSE"
+    }
+  ],
   "files": [
-    "parser.js",
-    "parser.jsx"
+    "index.js",
+    "parser.jsx",
+    "LICENSE",
+    "README.md",
   ],
   "bugs": {
     "url": "https://github.com/simonstaton/React-DOM-Parser/issues"
   },
   "maintainers": [
-    {
-      "name": "simonstaton",
-      "email": "simon.staton@live.co.uk"
-    }
-  ]
+    "simonstaton <simon.staton@live.co.uk>"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
