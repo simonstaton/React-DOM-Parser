@@ -15,7 +15,7 @@ html declaration
 		data: {
 			age: 23
 		}
-	"></div>
+	" id="modules-wrapper"></div>
 
 Before instantiating a react component you must first register it in the parsers registry.
 	
@@ -40,3 +40,7 @@ Before instantiating a react component you must first register it in the parsers
 Once modules have been registered you may parse the DOM or any other DOM element to instantiate them
 
 	parser.parse(document.getElementsByTagName("BODY")[0]);
+
+It is also possible to retrieve a react components instance using the getByNode method
+	
+	var myReactComponentInstance = parser.getByNode(document.getElementById('modules-wrapper'));
