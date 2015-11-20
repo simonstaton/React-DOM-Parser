@@ -15,7 +15,7 @@
     "url": "git://github.com/simonstaton/React-DOM-Parser.git"
   },
   "main": "index.js",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "devDependencies": {
     "react": "^0.14.2",
     "react-dom": "^0.14.2"

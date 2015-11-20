@@ -7,7 +7,7 @@ module.exports = parser = {
 
 	registry: [],
 
-	modules: [],
+	modules: {},
 
 	getByNode: function(node){
 		var result;
