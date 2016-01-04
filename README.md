@@ -41,6 +41,12 @@ Once modules have been registered you may parse the DOM or any other DOM element
 
 	parser.parse(document.getElementsByTagName("BODY")[0]);
 
-It is also possible to retrieve a react components instance using the getByNode method
+To retrieve a react components instance use the getByNode method
 	
 	var myReactComponentInstance = parser.getByNode(document.getElementById('modules-wrapper'));
+
+To check when parse is complete use the onParseComplete method
+	
+	parser.onParseComplete(function(){
+		// Parse is complete and all components have been instantiated
+	});

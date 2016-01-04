@@ -7,6 +7,8 @@ module.exports = parser = {
 
 	registry: [],
 
+	callbacks: [],
+
 	modules: {},
 
 	getByNode: function(node){
@@ -18,6 +20,10 @@ module.exports = parser = {
 			}
 		}
 		return result;
+	},
+
+	onParseComplete: function(callback){
+		this.callbacks.push(callback);
 	},
 
 	register: function(module, constructor){
@@ -63,6 +69,12 @@ module.exports = parser = {
 			node.setAttribute('data-react-component', null);
 
 		}
+		
+		for(var i=0;i<this.callbacks.length;i++){
+			this.callbacks[i]();
+		}
+
+		this.callbacks = [];
 
 	}
 
